@@ -21,6 +21,7 @@ class Tile
   end
 
   def value=(new_value)
+    puts "value= called!"
     if given?
       puts "You can't change the value of a given tile."
     else
