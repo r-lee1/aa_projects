@@ -1,0 +1,35 @@
+<h1><%= @post.title %></h1>
+<br>
+Author: <%= @post.user.username %>
+<br>
+URL: <%= @post.url %>
+<br>
+Content:
+<br>
+<%= @post.content %>
+
+<br>
+
+<%= button_to "Edit Post", edit_post_url(@post), method: :get %>
+
+<h2>Subs</h2>
+<% @post.subs.each do |sub| %>
+  <li class="subs"><%= link_to sub.title, sub_url(sub) %></li>
+<% end %>
+
+<br>
+<h2>Comments</h2>
+<% top_level = @post.comments.where(parent_comment_id: nil) %>
+<% top_level.each do |comment| %>
+  <li><%= link_to comment.content, post_comment_url(post_id: @post, id: comment) %> (<%= comment.comments.count %>)</li>
+<% end %>
+<br>
+
+<h2>Add Comment</h2>
+<form class="" action="<%= post_comments_url(@post) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>Comment:
+  <input type="text" name="comment[content]" value="">
+  </label>
+  <input type="submit" name="" value="Add Comment">
+</form>

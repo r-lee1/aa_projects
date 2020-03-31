@@ -1,0 +1,19 @@
+<%= link_to "Users", users_url %>
+
+<br>
+<br>
+
+Username: <%= @user.username %>
+
+<br>
+
+
+<br>
+
+
+
+<% if current_user == @user %>
+<%= button_to "Edit User", edit_user_url(@user), method: :get %>
+
+<%= button_to "Delete User", user_url(@user), method: :delete %>
+<% end %>

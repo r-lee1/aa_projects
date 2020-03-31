@@ -1,0 +1,13 @@
+json.extract! @party, :name, :location
+
+json.guests do
+  # @party.guests do |guest|
+  #   json.extract! guest.gifts, :id, :name
+  # end
+  json.array! @party.guests do |guest|
+    json.name guest.name
+    json.gifts do
+      json.array! guest.gifts, :title
+    end
+  end
+end

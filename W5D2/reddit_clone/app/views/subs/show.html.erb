@@ -1,0 +1,18 @@
+
+Title: <%= @sub.title %>
+<br>
+Description: <%= @sub.description %>
+<br>
+Moderator: <%= @sub.user.username %>
+<br>
+<br>
+<section>
+  <% @sub.posts.each do |post| %>
+    <br>
+    <%= link_to post.title, post_url(post) %>
+  <% end %>
+</section>
+
+<br>
+
+<%= button_to "New Post", new_post_url, method: :get %>

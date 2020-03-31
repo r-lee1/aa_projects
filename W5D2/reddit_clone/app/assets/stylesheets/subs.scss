@@ -1,0 +1,19 @@
+// Place all the styles related to the subs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sub_index {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sub_list {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.sub_list li {
+  display: block;
+}

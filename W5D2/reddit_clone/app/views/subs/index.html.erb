@@ -1,0 +1,12 @@
+<h2>Subs</h2>
+<section class="sub_index">
+  <section class="sub_list">
+    <% @subs.each do |single_sub| %>
+      <li><%= link_to single_sub.title,  sub_url(single_sub)%></li>
+    <% end %>
+  </section>
+
+  <section>
+    <%= button_to "Create Sub", new_sub_url, method: :get %>
+  </section>
+</section>
